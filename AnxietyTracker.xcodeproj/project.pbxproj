@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A07E18BE1D4BE4C8005595A2 /* AttackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07E18BD1D4BE4C8005595A2 /* AttackDetailViewController.swift */; };
+		A08C52F51D4B9CA600313124 /* PostAttackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C52F41D4B9CA600313124 /* PostAttackViewController.swift */; };
+		A08C52F71D4B9DF400313124 /* AttackHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C52F61D4B9DF400313124 /* AttackHistoryTableViewController.swift */; };
+		A08C52F91D4BA8A600313124 /* PastAttackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C52F81D4BA8A600313124 /* PastAttackTableViewCell.swift */; };
 		A0D698C91D4A62A60098C612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698C81D4A62A60098C612 /* AppDelegate.swift */; };
-		A0D698CB1D4A62A60098C612 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698CA1D4A62A60098C612 /* ViewController.swift */; };
 		A0D698CE1D4A62A60098C612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D698CC1D4A62A60098C612 /* Main.storyboard */; };
 		A0D698D11D4A62A60098C612 /* AnxietyTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0D698CF1D4A62A60098C612 /* AnxietyTracker.xcdatamodeld */; };
 		A0D698D31D4A62A60098C612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D698D21D4A62A60098C612 /* Assets.xcassets */; };
 		A0D698D61D4A62A60098C612 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D698D41D4A62A60098C612 /* LaunchScreen.storyboard */; };
 		A0D698E11D4A62A60098C612 /* AnxietyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698E01D4A62A60098C612 /* AnxietyTrackerTests.swift */; };
+		A0D698EC1D4A62FA0098C612 /* AppHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698EB1D4A62FA0098C612 /* AppHomeViewController.swift */; };
+		A0D698EE1D4A82D80098C612 /* BorderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698ED1D4A82D80098C612 /* BorderTextView.swift */; };
+		A0D698F01D4A895F0098C612 /* AttackInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D698EF1D4A895F0098C612 /* AttackInformationViewController.swift */; };
+		A0E45E721D4BAECA00407EC0 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E45E711D4BAECA00407EC0 /* Attack.swift */; };
+		ED93D1E515EE9CAD9F3C04FF /* AttackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93DD2B444B39ACBC91F9A0 /* AttackController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A07E18BD1D4BE4C8005595A2 /* AttackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackDetailViewController.swift; sourceTree = "<group>"; };
+		A08C52F41D4B9CA600313124 /* PostAttackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAttackViewController.swift; sourceTree = "<group>"; };
+		A08C52F61D4B9DF400313124 /* AttackHistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackHistoryTableViewController.swift; sourceTree = "<group>"; };
+		A08C52F81D4BA8A600313124 /* PastAttackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAttackTableViewCell.swift; sourceTree = "<group>"; };
 		A0D698C51D4A62A60098C612 /* AnxietyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnxietyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D698C81D4A62A60098C612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0D698CA1D4A62A60098C612 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0D698CD1D4A62A60098C612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0D698D01D4A62A60098C612 /* AnxietyTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnxietyTracker.xcdatamodel; sourceTree = "<group>"; };
 		A0D698D21D4A62A60098C612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +49,11 @@
 		A0D698DC1D4A62A60098C612 /* AnxietyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnxietyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D698E01D4A62A60098C612 /* AnxietyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyTrackerTests.swift; sourceTree = "<group>"; };
 		A0D698E21D4A62A60098C612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0D698EB1D4A62FA0098C612 /* AppHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHomeViewController.swift; sourceTree = "<group>"; };
+		A0D698ED1D4A82D80098C612 /* BorderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextView.swift; sourceTree = "<group>"; };
+		A0D698EF1D4A895F0098C612 /* AttackInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackInformationViewController.swift; sourceTree = "<group>"; };
+		A0E45E711D4BAECA00407EC0 /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
+		ED93DD2B444B39ACBC91F9A0 /* AttackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +95,21 @@
 		A0D698C71D4A62A60098C612 /* AnxietyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A0D698C81D4A62A60098C612 /* AppDelegate.swift */,
-				A0D698CA1D4A62A60098C612 /* ViewController.swift */,
-				A0D698CC1D4A62A60098C612 /* Main.storyboard */,
-				A0D698D21D4A62A60098C612 /* Assets.xcassets */,
-				A0D698D41D4A62A60098C612 /* LaunchScreen.storyboard */,
-				A0D698D71D4A62A60098C612 /* Info.plist */,
 				A0D698CF1D4A62A60098C612 /* AnxietyTracker.xcdatamodeld */,
+				A0D698C81D4A62A60098C612 /* AppDelegate.swift */,
+				A0D698EB1D4A62FA0098C612 /* AppHomeViewController.swift */,
+				A0D698D21D4A62A60098C612 /* Assets.xcassets */,
+				A0E45E711D4BAECA00407EC0 /* Attack.swift */,
+				ED93DD2B444B39ACBC91F9A0 /* AttackController.swift */,
+				A08C52F61D4B9DF400313124 /* AttackHistoryTableViewController.swift */,
+				A0D698EF1D4A895F0098C612 /* AttackInformationViewController.swift */,
+				A0D698ED1D4A82D80098C612 /* BorderTextView.swift */,
+				A0D698D71D4A62A60098C612 /* Info.plist */,
+				A0D698D41D4A62A60098C612 /* LaunchScreen.storyboard */,
+				A0D698CC1D4A62A60098C612 /* Main.storyboard */,
+				A07E18BD1D4BE4C8005595A2 /* AttackDetailViewController.swift */,
+				A08C52F81D4BA8A600313124 /* PastAttackTableViewCell.swift */,
+				A08C52F41D4B9CA600313124 /* PostAttackViewController.swift */,
 			);
 			path = AnxietyTracker;
 			sourceTree = "<group>";
@@ -200,9 +224,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0D698CB1D4A62A60098C612 /* ViewController.swift in Sources */,
 				A0D698C91D4A62A60098C612 /* AppDelegate.swift in Sources */,
+				A0D698EE1D4A82D80098C612 /* BorderTextView.swift in Sources */,
+				A0D698F01D4A895F0098C612 /* AttackInformationViewController.swift in Sources */,
+				A08C52F91D4BA8A600313124 /* PastAttackTableViewCell.swift in Sources */,
+				A08C52F71D4B9DF400313124 /* AttackHistoryTableViewController.swift in Sources */,
+				A07E18BE1D4BE4C8005595A2 /* AttackDetailViewController.swift in Sources */,
 				A0D698D11D4A62A60098C612 /* AnxietyTracker.xcdatamodeld in Sources */,
+				A08C52F51D4B9CA600313124 /* PostAttackViewController.swift in Sources */,
+				A0D698EC1D4A62FA0098C612 /* AppHomeViewController.swift in Sources */,
+				A0E45E721D4BAECA00407EC0 /* Attack.swift in Sources */,
+				ED93D1E515EE9CAD9F3C04FF /* AttackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +424,7 @@
 				A0D698E71D4A62A60098C612 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0D698E81D4A62A60098C612 /* Build configuration list for PBXNativeTarget "AnxietyTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +433,7 @@
 				A0D698EA1D4A62A60098C612 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
