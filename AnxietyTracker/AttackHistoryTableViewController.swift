@@ -38,6 +38,18 @@ class AttackHistoryTableViewController: UITableViewController {
 		return cell
 	}
 
+	override func tableView( tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath ) -> Bool {
+		return true
+	}
+
+	override func tableView( tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath ) {
+		if editingStyle == .Delete {
+			attackCtrl.deleteFromCoreData( attackCtrl.attacks[ indexPath.row ].uuid )
+			attacks = attackCtrl.attacks
+			tableView.reloadData()
+		}
+	}
+
 	// MARK: - Navigation
 
 	override func prepareForSegue( segue: UIStoryboardSegue, sender: AnyObject? ) {
