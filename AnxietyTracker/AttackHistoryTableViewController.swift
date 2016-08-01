@@ -12,28 +12,25 @@ class AttackHistoryTableViewController: UITableViewController {
 
 	let attackCtrl = AttackController.sharedController
 
-	var attacks: [ Attack ] = []
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 
 	override func viewWillAppear( animated: Bool ) {
-		attacks = attackCtrl.attacks
 		tableView.reloadData()
 	}
 
 	// MARK: - Table view data source
 
 	override func tableView( tableView: UITableView, numberOfRowsInSection section: Int ) -> Int {
-		return attacks.count
+		return attackCtrl.attacks.count
 	}
 
 	override func tableView( tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath ) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier( "pastAttackCell", forIndexPath: indexPath ) as! PastAttackTableViewCell
 
-		cell.attackDateLabel.text = attacks[ indexPath.row ].dateDisplayString
-		cell.attackSeverityLabel.text = "Severity: \( attacks[ indexPath.row ].severity )"
+		cell.attackDateLabel.text = attackCtrl.attacks[ indexPath.row ].dateDisplayString
+		cell.attackSeverityLabel.text = "Severity: \( attackCtrl.attacks[ indexPath.row ].severity )"
 
 		return cell
 	}
@@ -44,9 +41,12 @@ class AttackHistoryTableViewController: UITableViewController {
 
 	override func tableView( tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath ) {
 		if editingStyle == .Delete {
-			attackCtrl.deleteFromCoreData( attackCtrl.attacks[ indexPath.row ].uuid )
-			attacks = attackCtrl.attacks
-			tableView.reloadData()
+			attackCtrl.deleteFromCoreData( attackCtrl.attacks[ indexPath.row ].uuid, completion: {
+				(success: Bool) in
+				if success {
+					tableView.deleteRowsAtIndexPaths( [ indexPath ], withRowAnimation: .Automatic )
+				}
+			} )
 		}
 	}
 
