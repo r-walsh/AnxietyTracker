@@ -48,4 +48,25 @@ class AttackDetailViewController: UIViewController {
 		return "Attack Duration: \( Int( round( seconds ) ) ) seconds"
 	}
 
+	@IBAction func trashButtonPressed( sender: UIBarButtonItem ) {
+		if let currentAttack = attack {
+			let confirmDelete = UIAlertController( title: "Are you sure?", message: "This action cannot be undone.", preferredStyle: .Alert )
+
+			let deleteAction = UIAlertAction( title: "Delete", style: .Destructive, handler: {
+				(action) in
+				AttackController.sharedController.deleteFromCoreData( currentAttack.uuid, completion: {
+					(success: Bool) in
+					if success {
+						self.navigationController?.popViewControllerAnimated( true )
+					}
+				} )
+			} )
+
+			confirmDelete.addAction( deleteAction )
+			confirmDelete.addAction( UIAlertAction( title: "Cancel", style: .Cancel, handler: nil ) )
+
+			self.presentViewController( confirmDelete, animated: true, completion: nil )
+		}
+	}
+
 }

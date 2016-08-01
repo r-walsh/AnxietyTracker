@@ -16,6 +16,7 @@ struct Attack {
 	private let managedByKey = "managedBy"
 	private let postAttackSeverityKey = "postAttackSeverity"
 	private let severityKey = "severity"
+	private let uuidKey = "uuid"
 
 	let date: NSDate
 	let duration: NSTimeInterval
@@ -24,6 +25,7 @@ struct Attack {
 	let postAttackSeverity: Int
 	let cause: String
 	let managedBy: String
+	let uuid: String
 
 	var attackAsDictionary: [ String:AnyObject ] {
 		return [
@@ -33,11 +35,12 @@ struct Attack {
 				severityKey: severity,
 				postAttackSeverityKey: postAttackSeverity,
 				causeKey: cause,
-				managedByKey: managedBy
+				managedByKey: managedBy,
+				uuidKey: uuid
 		]
 	}
 
-	init( date: NSDate, duration: NSTimeInterval, dateDisplayString: String, severity: Int, postAttackSeverity: Int, cause: String, managedBy: String ) {
+	init( date: NSDate, duration: NSTimeInterval, dateDisplayString: String, severity: Int, postAttackSeverity: Int, cause: String, managedBy: String, uuid: String ) {
 		self.date = date
 		self.duration = duration
 		self.dateDisplayString = dateDisplayString
@@ -45,6 +48,7 @@ struct Attack {
 		self.postAttackSeverity = postAttackSeverity
 		self.cause = cause
 		self.managedBy = managedBy
+		self.uuid = uuid
 	}
 
 	init?( attackDictionary: [ String:AnyObject ] ) {
@@ -54,7 +58,8 @@ struct Attack {
 		let severity = attackDictionary[ severityKey ] as? Int,
 		let postAttackSeverity = attackDictionary[ postAttackSeverityKey ] as? Int,
 		let cause = attackDictionary[ causeKey ] as? String,
-		let managedBy = attackDictionary[ managedByKey ] as? String
+		let managedBy = attackDictionary[ managedByKey ] as? String,
+		let uuid = attackDictionary[ uuidKey ] as? String
 		else {
 			return nil
 		}
@@ -66,5 +71,6 @@ struct Attack {
 		self.postAttackSeverity = postAttackSeverity
 		self.cause = cause
 		self.managedBy = managedBy
+		self.uuid = uuid
 	}
 }

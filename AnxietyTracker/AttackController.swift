@@ -17,6 +17,9 @@ class AttackController {
 	private let managedByKey = "managedBy"
 	private let postAttackSeverityKey = "postAttackSeverity"
 	private let severityKey = "severity"
+	private let uuidKey = "uuid"
+
+	private let managedContext: NSManagedObjectContext
 
 	var attacks: [ Attack ] = []
 	var coreDataAttacks = [ NSManagedObject ]()
@@ -25,6 +28,9 @@ class AttackController {
 	private var attackDuration: NSTimeInterval?
 
 	init() {
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		managedContext = appDelegate.managedObjectContext
+
 		fetchAttacksFromCoreData()
 	}
 
@@ -32,6 +38,7 @@ class AttackController {
 		let currentDate = NSDate()
 		let dateDisplayString = formatNSDateToDisplayString( currentDate )
 		let duration = attackDuration == nil ? 0 : attackDuration!
+		let uuid = NSUUID().UUIDString
 
 		let attack = Attack(
 				date: currentDate,
@@ -40,7 +47,8 @@ class AttackController {
 				severity: attackSeverity,
 				postAttackSeverity: postAttackSeverity,
 				cause: causeOfAttack,
-				managedBy: managedAttackBy
+				managedBy: managedAttackBy,
+				uuid: uuid
 				)
 
 		attacks.append( attack )
@@ -49,9 +57,6 @@ class AttackController {
 	}
 
 	func saveAttackToCoreData( attack: Attack ) {
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-
 		let entity = NSEntityDescription.entityForName( "Attack", inManagedObjectContext: managedContext )
 		let attackEntity = NSManagedObject( entity: entity!, insertIntoManagedObjectContext: managedContext )
 
@@ -65,13 +70,11 @@ class AttackController {
 	}
 
 	func fetchAttacksFromCoreData() {
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let managedContext = appDelegate.managedObjectContext
-
 		do {
 			let results = try managedContext.executeFetchRequest( NSFetchRequest( entityName: "Attack" ) )
 			attacks = results.map( {
 				(attack) -> Attack in
+
 				return Attack( attackDictionary: [
 						causeKey: attack.valueForKey( causeKey )!,
 						dateKey: attack.valueForKey( dateKey )!,
@@ -79,11 +82,44 @@ class AttackController {
 						durationKey: attack.valueForKey( durationKey )!,
 						managedByKey: attack.valueForKey( managedByKey )!,
 						postAttackSeverityKey: attack.valueForKey( postAttackSeverityKey )!,
-						severityKey: attack.valueForKey( severityKey )!
+						severityKey: attack.valueForKey( severityKey )!,
+						uuidKey: attack.valueForKey( uuidKey )!
 				] )!
 			} ).sort( { $0.date.compare( $1.date ) == NSComparisonResult.OrderedDescending } )
 		} catch {
 			print( "Could not fetch attacks: \( error )" )
+		}
+	}
+
+	func deleteFromCoreData( uuid: String, completion: ( ( Bool ) -> Void )? = nil ) {
+		let predicate = NSPredicate( format: "uuid == %@", uuid )
+
+		let fetchRequest = NSFetchRequest( entityName: "Attack" )
+		fetchRequest.predicate = predicate
+
+		do {
+			let attacks = try self.managedContext.executeFetchRequest( fetchRequest ) as! [ NSManagedObject ]
+			if let attackToDelete = attacks.first {
+				self.managedContext.deleteObject( attackToDelete )
+			}
+		} catch {
+			print( "Failed to delete: \( error )" )
+			if let callback = completion {
+				callback( false )
+			}
+		}
+
+		do {
+			try self.managedContext.save()
+			self.attacks = self.attacks.filter {
+				$0.uuid != uuid
+			}
+
+			if let callback = completion {
+				callback( true )
+			}
+		} catch {
+			print( "Failed to delete: \( error )" )
 		}
 	}
 
