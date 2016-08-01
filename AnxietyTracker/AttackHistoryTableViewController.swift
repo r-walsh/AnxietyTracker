@@ -12,10 +12,6 @@ class AttackHistoryTableViewController: UITableViewController {
 
 	let attackCtrl = AttackController.sharedController
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-
 	override func viewWillAppear( animated: Bool ) {
 		tableView.reloadData()
 	}

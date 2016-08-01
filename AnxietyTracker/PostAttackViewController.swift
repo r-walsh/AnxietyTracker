@@ -49,7 +49,7 @@ class PostAttackViewController: UIViewController, UIPickerViewDataSource, UIPick
 
 	// MARK: - Actions
 	@IBAction func savePostAttackButtonPressed( sender: UIButton ) {
-		AttackController.sharedController.createAttack( attackSeverity, postAttackSeverity: retrospectSeverityPicker.selectedRowInComponent( 0 ), causeOfAttack: causeOfAttack, managedAttackBy: howDidAttackPassTextView.text )
+		AttackController.sharedController.createAttack( attackSeverity, postAttackSeverity: retrospectSeverityPicker.selectedRowInComponent( 0 ) + 1, causeOfAttack: causeOfAttack, managedAttackBy: howDidAttackPassTextView.text )
 		performSegueWithIdentifier( "unwindToHome", sender: nil )
 	}
 
