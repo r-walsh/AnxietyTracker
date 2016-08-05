@@ -51,7 +51,7 @@ class AttackController {
 				uuid: uuid
 				)
 
-		attacks.append( attack )
+		attacks.insert( attack, atIndex: 0 )
 		saveAttackToCoreData( attack )
 		return attack
 	}
